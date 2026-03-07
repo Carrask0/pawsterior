@@ -28,21 +28,21 @@ This repo implements **endpoint-based variational flow matching** for **simulati
 ```
 configs/
   run.yaml                 # single run config
-  tasks.yaml               # task metadata (dims, priors, support, etc.)
+  tasks.yaml               # task metadata 
   sweeps/
     sbibm_sweep.yaml       # sweep template for sbibm
-    sgm_sweep.yaml         # sweep template for SGM (categorical)
+    sgm_sweep.yaml         # sweep template for SGM (Categorical task)
 jobs/
   launch_sweep.sh          # submits Slurm array sweep
   launch_train_eval.sh     # submits Slurm single run
   sweep_array.job          # Slurm array job definition
   train_eval.job           # Slurm single-job definition
 src/
-  cli.py                   # CLI entrypoint (run / sweep-index)
+  cli.py                   # CLI entrypoint 
   experiment.py            # training + evaluation wrapper
   sweep.py                 # streaming sweep logic (keep-best)
   tasks.py                 # task loader (sbibm + custom SGM)
-  models/                  # model implementations (x0x1, x1, velocity, etc.)
+  models/                  # model implementations 
 artifacts/                 # results / checkpoints / best.json (created at runtime)
 ```
 
