@@ -14,9 +14,9 @@ ___
 
 ## TL;DR
 
-This repo implements **endpoint-based variational flow matching** for **simulation-based inference (SBI)** with structured supports:
-- **Continuous bounded supports** (e.g. sbibm tasks with box constraints)
-- **Categorical / switching latent structure** via a custom **Switching Gaussian Mixture (SGM)** task
+This repo implements **endpoint-based variational flow matching**, this is applied to **simulation-based inference (SBI)** with structured supports in two settings:
+- **Continuous tasks with bounded supports** (evaluated on sbibm tasks)
+- **Categorical supports** (evaluated on a custom **Switching Gaussian Mixture (SGM)** task)
 
 
 <p align="center">
