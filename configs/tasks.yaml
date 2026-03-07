@@ -1,0 +1,49 @@
+two_moons:
+  dim_data: 2
+  dim_parameters: 2
+  prior_dist: uniform
+  support: [-1, 1]
+
+slcp:
+  dim_data: 8
+  dim_parameters: 5
+  prior_dist: uniform
+  support: [-3, 3]
+
+sir:
+  dim_data: 10
+  dim_parameters: 2
+  prior_dist: log_normal
+
+lotka_volterra:
+  dim_data: 20
+  dim_parameters: 4
+  prior_dist: log_normal
+
+gaussian_linear:
+  dim_data: 10
+  dim_parameters: 10
+  prior_dist: multivariate_normal
+
+gaussian_linear_uniform:
+  dim_data: 10
+  dim_parameters: 10
+  prior_dist: uniform
+  support: [-1, 1]
+
+gaussian_mixture:
+  dim_data: 2
+  dim_parameters: 2
+  prior_dist: uniform
+  support: [-10, 10]
+
+bernoulli_glm:
+  dim_data: 10
+  dim_parameters: 10
+  prior_dist: multivariate_normal
+
+sgm:
+  d_x: 5
+  K: 10
+  T: 10
+  prior_dist: "custom"

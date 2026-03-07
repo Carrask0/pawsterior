@@ -1,0 +1,21 @@
+#!/bin/bash
+#SBATCH --partition=gpu_mig
+#SBATCH --gpus=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=9
+#SBATCH --time=2:00:00
+#SBATCH --array=0-39
+#SBATCH --output=./jobs/output/%x/%A_%a.out
+
+set -eo pipefail
+
+module purge
+module load 2023
+module load CUDA/12.1.1
+module load Anaconda3/2023.07-2
+
+source activate pawsterior_env
+
+: "${SWEEP_CONFIG:?Set SWEEP_CONFIG}"
+
+python -m src.cli sweep-index --config "$SWEEP_CONFIG" --grid-index "$SLURM_ARRAY_TASK_ID"

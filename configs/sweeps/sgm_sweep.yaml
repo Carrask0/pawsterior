@@ -1,0 +1,25 @@
+seed: 0
+keep_topk: 1
+
+run:
+  task_name: sgm
+  model: x0x1 
+  init_dist: gaussian
+  n_train: 1000 
+  n_val: 200 
+  n_posterior_samples: 1000 
+  n_obs_eval: 10     # Fixed number of observations provided for evaluation
+
+
+train:
+  num_epochs: 10000 
+  batch_size: 1024 
+  early_stopping_patience: 500 
+  early_stopping_min_delta: 1e-4
+
+grid:
+  hidden_dim: [128]
+  num_blocks:
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+  learning_rate: [1e-3, 1e-4]
+  alpha: [0]

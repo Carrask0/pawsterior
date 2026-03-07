@@ -1,0 +1,27 @@
+#!/bin/bash
+#SBATCH --partition=gpu_mig
+#SBATCH --gpus=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=9
+#SBATCH --time=2:00:00
+#SBATCH --output=./jobs/output/%x/%A.out
+
+set -eo pipefail
+
+module purge
+module load 2023
+module load CUDA/12.1.1
+module load Anaconda3/2023.07-2
+
+
+source activate pawsterior_env
+
+# Required environment variables (set in launch script)
+: "${CONFIG:?Set CONFIG}"
+: "${TASK_NAME:?Set TASK_NAME}"
+: "${MODEL:?Set MODEL}"
+: "${INIT_DIST:?Set INIT_DIST}"
+: "${N_TRAIN:?Set N_TRAIN}"
+
+python -m src.cli run --config "$CONFIG" \
+  --override run.task_name="$TASK_NAME" run.model="$MODEL" run.init_dist="$INIT_DIST" run.n_train="$N_TRAIN"

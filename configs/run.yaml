@@ -1,0 +1,22 @@
+seed: 0
+
+run:
+  task_name: two_moons
+  model: x1 # x0x1 | x1 | velocity
+  init_dist: gaussian # gaussian | theta_prior
+  n_train: 1000
+  n_val: 500 
+  n_posterior_samples: 1000 
+  n_obs_eval: 10     # Fixed number of observations provided by sbibm for evaluation
+
+train:
+  num_epochs: 10000 
+  batch_size: 1024 
+  early_stopping_patience: 500
+  early_stopping_min_delta: 1e-4
+
+params:
+  hidden_dim: 512 
+  num_blocks: 16
+  learning_rate: 1e-4
+  alpha: 0.0
